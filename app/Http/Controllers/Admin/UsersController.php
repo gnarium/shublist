@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use App\Models\User;
+use App\Models\invitation;
+
+class UsersController extends Controller
+{
+    /**---------Addl Users----------- */
+    public function index()
+    {
+        $users = User::orderBy('created_at','DESC')->simplePaginate(10);
+        return view('Admin.Users.users')
+                    ->with('users',$users);
+    }
+
+    /**---------Uer Details----------- */
+    public function usersDetails($id)
+    {
+        $user = User::find($id);
+        $invitations = Invitation::where('user_id',$id)->simplePaginate(4);
+        return view('Admin.Users.users_details')
+                        ->with('user',$user)
+                        ->with('invitations',$invitations);
+    }
+}
