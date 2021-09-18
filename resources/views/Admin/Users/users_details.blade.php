@@ -11,7 +11,7 @@
 @section('main-content')
 <div class="container mt-5 mb-5 dashboard">
     <div class="card p-2">
-        <div class="row">
+        <div class="row align-items-center" >
             <div class="col-sm-4 d-flex justify-content-center ">
                 <div class="image">
                     <img class="rounded-circle" width="120" src="{{asset('Template/img/none.png')}}" />
@@ -20,6 +20,9 @@
             <div class="col-sm-8">
                 <h2 class="mt-2">{{ucfirst($user->name)}}</h2> 
                 <span class="address-content"> <i class="fa fa-"></i> <strong>Email - </strong> {{$user->email}}</span>
+                <p><span class="address-content"> <i class="fa fa-"></i> <strong>Password - </strong> {{$user->password}}</span></p>
+                <p><span class="address-content"> <i class="fa fa-"></i> <strong>Numabe - </strong> {{@$user->phone}}</span></p>
+                <p><span class="address-content"> <i class="fa fa-"></i> <strong>Address - </strong> {{@$user->address}}</span></p>
                 
             </div>
         </div>

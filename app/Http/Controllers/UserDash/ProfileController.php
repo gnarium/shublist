@@ -22,7 +22,7 @@ class ProfileController extends Controller
 
          /**----------------Image 1------------------- */
          if ($req->hasFile('profile')) {
-            $image = $req->profile->store('public/'.Auth::user()->email.'/profile');
+            $image = $req->profile->store('public/'.Auth::user()->id.'/profile');
             $profile->image = $image;
         }
         $profile->save();
