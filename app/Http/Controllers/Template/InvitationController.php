@@ -17,7 +17,12 @@ class InvitationController extends Controller
     public function invite($slug)
     {
         $invi = Invitation::where('slug',$slug)->first();
-        return view('Template.invi.invite')
+        if ($invi) {
+            return view('Template.invi.invite')
                         ->with('invite',$invi);
+        }else {
+            return redirect()->route('/');
+        }
+        
     }
 }

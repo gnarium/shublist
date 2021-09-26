@@ -2,67 +2,6 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('Template/css/about-us.css')}}" type="text/css">
-    <style>
-        .mega-dropdown {
-            position: static !important;
-        }
-
-        .mega-dropdown-menu {
-            padding: 20px 0px;
-            width: 100%;
-            box-shadow: none;
-            -webkit-box-shadow: none;
-        }
-
-        .mega-dropdown-menu>li>ul {
-            padding: 0;
-            margin: 0;
-        }
-
-        .mega-dropdown-menu>li>ul>li {
-            list-style: none;
-        }
-
-        .mega-dropdown-menu>li>ul>li>a {
-            display: block;
-            color: #222;
-            padding: 3px 5px;
-        }
-
-        .mega-dropdown-menu>li ul>li>a:hover,
-        .mega-dropdown-menu>li ul>li>a:focus {
-            text-decoration: none;
-        }
-
-        .mega-dropdown-menu .dropdown-header {
-            font-size: 18px;
-            color: #ff3546;
-            padding: 5px 60px 5px 5px;
-            line-height: 30px;
-        }
-
-        .carousel-control {
-            width: 30px;
-            height: 30px;
-            top: -35px;
-
-        }
-
-        .left.carousel-control {
-            right: 30px;
-            left: inherit;
-        }
-
-        .carousel-control .glyphicon-chevron-left,
-        .carousel-control .glyphicon-chevron-right {
-            font-size: 12px;
-            background-color: #fff;
-            line-height: 30px;
-            text-shadow: none;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-    </style>
     
 @endsection
 
@@ -370,19 +309,5 @@
 @endsection
 
 @section('js')
-    <script>
-        $(document).ready(function () {
-            $(".dropdown").hover(
-                function () {
-                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
-                    $(this).toggleClass('open');
-                },
-                function () {
-                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
-                    $(this).toggleClass('open');
-                }
-            );
-        });
-
-    </script>
+    
 @endsection

@@ -10,6 +10,7 @@
     
     <!-- Template CSS -->    
     <link rel="stylesheet" href="{{asset('Template/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('Template/css/layout.css')}}" type="text/css">
     
     <!--fontawesome -->
     <link rel="stylesheet" href="{{asset('Template/fontawesome/css/font-awesome.min.css')}}" type="text/css">
@@ -73,6 +74,7 @@
 
     <!-- OWL Carousel-->    
     <script src="{{asset('Template/js/OwlCarousel/dist/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('Template/js/layout.js')}}"></script>
 
     <script >
         $(document).ready(function(){

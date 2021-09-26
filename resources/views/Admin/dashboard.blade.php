@@ -4,56 +4,55 @@
 @endsection 
 
 @section('external-css')
-<style>
-.add-Tag{
-    background-color: #000;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
-.add-Tag .card-heading{
-    text-align: center;
-    font-size: 22px;
-    font-weight: 600;
-    color: #fd4040
-}
-.add-Tag .card-text{
-    text-align: center;
-    font-size: 12px;
-    font-weight: 400;
-    color: #fff
-}
-
-.quick-card{
-    background-color: #fff;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
-
-
-
-.quick-card .card-heading {
-    font-size: 22px;
-    color: #464e56;
-    font-weight: 600;
-    text-align: left
-}
-
-.card-text {
-    font-size: 12px;
-    font-weight: 500;
-    color: #868e94;
-    text-align: left
-}
-</style >
+<link rel="stylesheet" href="{{asset('Admin/css/dashboard.css')}}">
 
 @endsection  
 @section('main-content')
+
+<div class="container mt-5 mb-5 dashboard ">
+    <div class="card p-2 shadow py-4">
+        <div class="row align-items-center" >
+            <div class="col-sm-4 d-flex justify-content-center user-profile">
+                <div class="image">
+                    @if(!empty(Auth::user()->profile->image))
+                        <img class="rounded-circle border img-thumbnail"  src="{{@Storage::disk('local')->url(Auth::user()->profile->image)}}" />
+                    @else
+                        <img class="rounded-circle"  src="{{asset('Template/img/none.png')}}" />
+                    @endif                    
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <h2 class="mt-2 font-weight-bolder">{{ucfirst(Auth::user()->name)}}
+                    <span class="edit-button">
+                        <button type="button" class="btn btn-sm " data-toggle="modal" data-target="#exampleModalCenter">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </span>
+                </h2> 
+                <span class="address-content small"> 
+                    <i class="fa fa-"></i> 
+                    <strong>Email - </strong> {{Auth::user()->email}}
+                </span>
+                <div class="profile-info mt-1 small">                    
+                    <span class="address-content"> 
+                        <i class="fa fa-"></i> <strong>Numabe - </strong> 
+                        {{@Auth::user()->profile->phone}}                        
+                    </span>
+                    <br>
+                    
+                    <span class="address-content"> 
+                        <i class="fa fa-"></i> <strong>Address - </strong> 
+                        {{@ucfirst(Auth::user()->profile->address)}}
+                    </span>
+                </div>                
+            </div>
+            <div class="col-sm-3">
+                <a href="{{route('admin-users-details',Auth::user()->id)}}" class="btn btn-outline-primary px-4">Details</a>
+            </div>
+        </div>
+    </div>   
+</div>
+
 <div class="container dashboard">
     <div class="row">
 
@@ -111,6 +110,52 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+    
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Update Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{route('update-user-profile')}}" method="post"  enctype="multipart/form-data">
+        @csrf
+      <div class="modal-body">
+        
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" name="name" value="{{Auth::user()->name}}">
+            </div>
+            <div class="form-group">
+                <label for="Phone">Phone</label>
+                <input type="text" class="form-control" id="Phone" placeholder="Phone Number" name="phone" value="{{Auth::user()->profile->phone}}">
+            </div>
+            <div class="form-group">
+                <label for="Phone">Address</label>
+                <textarea  class="form-control" placeholder="Address.." name="address" >{{Auth::user()->profile->address}}</textarea>
+                
+            </div>
+            <div class="form-group">
+                <label for="image">Profile</label>
+                <br>
+                <input type="file"  id="image" placeholder="Image" name="profile">
+            </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
 </div>
 @endsection
 

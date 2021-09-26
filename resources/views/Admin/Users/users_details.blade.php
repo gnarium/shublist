@@ -4,26 +4,38 @@
 @endsection 
 
 @section('external-css')
-<style>
+<link rel="stylesheet" href="{{asset('Admin/css/user_details.css')}}">
 
-</style>
 @endsection  
 @section('main-content')
 <div class="container mt-5 mb-5 dashboard">
     <div class="card p-2">
         <div class="row align-items-center" >
-            <div class="col-sm-4 d-flex justify-content-center ">
+            <div class="col-sm-4 d-flex justify-content-center user-profile">
                 <div class="image">
-                    <img class="rounded-circle" width="120" src="{{asset('Template/img/none.png')}}" />
+                    @if(!empty($user->profile->image))
+                        <img class="rounded-circle border"  src="{{@Storage::disk('local')->url($user->profile->image)}}" />
+                    @else
+                        <img class="rounded-circle"  src="{{asset('Template/img/none.png')}}" />
+                    @endif                    
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 ">
                 <h2 class="mt-2">{{ucfirst($user->name)}}</h2> 
                 <span class="address-content"> <i class="fa fa-"></i> <strong>Email - </strong> {{$user->email}}</span>
                 <p><span class="address-content"> <i class="fa fa-"></i> <strong>Password - </strong> {{$user->password}}</span></p>
-                <p><span class="address-content"> <i class="fa fa-"></i> <strong>Numabe - </strong> {{@$user->phone}}</span></p>
-                <p><span class="address-content"> <i class="fa fa-"></i> <strong>Address - </strong> {{@$user->address}}</span></p>
                 
+                <div class="profile-info mt-4">                    
+                    <p><span class="address-content"> <i class="fa fa-"></i> <strong>Numabe - </strong> {{@$user->profile->phone}}</span></p>
+                    <p><span class="address-content"> <i class="fa fa-"></i> <strong>Address - </strong> {{@ucfirst($user->profile->address)}}</span></p>
+                </div>
+                @if($user->role->title != 'admin')
+                    <form action="{{route('admin-users-delete',$user->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger btn-sm">Delete ({{ucfirst($user->name)}})</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
@@ -54,7 +66,7 @@
         @else
             <div class="col-sm-6 mx-auto ">
                 <div class="card p-4">
-                    <h1 class="font-weight-bolder">No Data Fount!!!!</h1>
+                    <h1 class="font-weight-bolder">No Data Found!!!!</h1>
                 </div>
             </div>
         @endif

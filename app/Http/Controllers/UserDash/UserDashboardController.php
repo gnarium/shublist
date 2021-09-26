@@ -13,7 +13,7 @@ class UserDashboardController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        $invitations = Invitation::where('user_id',Auth::user()->id)->get();
+        $invitations = Invitation::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->get();
         return view('UserDash.dashboard')
                     ->with('user',$user)
                     ->with('invitations',$invitations);

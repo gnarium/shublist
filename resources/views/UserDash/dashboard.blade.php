@@ -1,239 +1,47 @@
 @extends('Layout.app')
 
 @section('css')
-<style>
-
-.dashboard .address-content {
-    font-size: 13px
-}
-
-.dashboard .card {
-    height: 100%
-}
-
-.dashboard .content-aboutme span {
-    font-size: 13px
-}
-
-.dashboard .portfolio-content p {
-    font-size: 13px
-}
-
-.dashboard .badge {
-    font-size: 11px;
-    font-weight: 600
-}
-
-/**Profile */
-.dashboard .profile figure{
-  border: 1px solid;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.dashboard .profile figure>img{  
-  height: 100%;
-  width: 100%;
-}
-
-/**My Invitation */
-.dashboard .board .my-invitation figure{ 
-  height: 250px;
-  overflow: hidden;
-}
-.dashboard .board .my-invitation figure>img{
-  height: 100%;
-  width: 100%;
-}
-.my-invitation .name {
-    font-size: 25px;
-    font-weight: 650
-}
-
-.my-invitation .information {
-    color: #9FA8DA;
-    font-weight: 500;
-    font-size: 16px
-}
-
-.my-invitation .list-icons {
-    display: inline-flex;
-    color: #C5CAE9
-}
-
-
-
-.my-invitation .facebook {
-    background: #3b5998
-}
-
-.my-invitation .instagram {
-    background: #3f729b
-}
-
-.my-invitation .youtube {
-    background: #ff0000
-}
-
-.my-invitation .whatsapp {
-    background: #4dc247
-}
-
-.my-invitation .pinterest {
-    background: #cb2027
-}
-
-.my-invitation .card-footer{    
-    border:0px;
-    background:transparent;
-    margin-top:-10px;
-    padding-top:0px;
-}
-
-.my-invitation .card-footer .btn{    
-    padding: 7px 10px;       
-    color: #fff;
-    font-size: 10px;    
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    font-weight:bolder;
-
-}
-.my-invitation .card-footer .Priview{
-    width:60%;
-    background: linear-gradient(to right, rgb(229 52 52) 0%,rgb(235 164 12) 100%);
-}
-.my-invitation .card-footer .Dell{
-    width:28%;
-    background: #ff4157;
-    border-color: #ff4157;
-}
-
-        /**CATEGORY */
-        
-
-        .categories .title {
-    color: #1a1a1a;
-    text-align: center;
-    margin-bottom: 10px
-}
-
-.categories .content {
-    position: relative;
-    width: 90%;
-    max-width: 400px;
-    margin: auto;
-    overflow: hidden;
-    margin-top:20px;
-}
-
-.categories .content .content-overlay {
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    height: 99%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
-    -webkit-transition: all 0.4s ease-in-out 0s;
-    -moz-transition: all 0.4s ease-in-out 0s;
-    transition: all 0.4s ease-in-out 0s
-}
-
-.categories .content:hover .content-overlay {
-    opacity: 1
-}
-
-.categories .content-image {
-    width: 100%
-}
-
-.categories img {
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
-    border-radius: 5px
-}
-
-.categories .content-details {
-    position: absolute;
-    text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s
-}
-
-.categories .content:hover .content-details {
-    top: 50%;
-    left: 50%;
-    opacity: 1
-}
-
-.categories .content-details h3 {
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    margin-bottom: 0.5em;
-    text-transform: uppercase
-}
-
-.categories .content-details p {
-    color: #fff;
-    font-size: 0.8em
-}
-
-.categories .fadeIn-bottom {
-    top: 80%
-}
-
-.categories .links-wrap a .go-create{
-    font-family: 'Raleway';
-    font-weight: 500;
-    display: inline-block;
-    margin-bottom: 0;
-    background: linear-gradient(to right, rgb(229 52 52) 0%,rgb(235 164 12) 100%);
-    color: #fff;
-    border-radius: 0;
-    line-height: 24px;
-    padding: 8px 25px;
-}
-</style>
+<link rel="stylesheet" href="{{asset('UserDash/css/dashboard.css')}}">   
 @endsection
 
 @section('main')
 <div class="container mt-5 mb-5 dashboard">
     <div class="card"> 
         <div class="row g-2">
-            <div class="col-md-4">
-                <div class="p-3 text-center border-end mt-4"> 
-                    <figure>
-                        
-                        @if(!empty($user->profile->image))
-                            <img class="rounded-circle" width="120" src="{{asset('Template/img/none.png')}}" />
-                        @else
-                            <img class="rounded-circle" width="120" src="{{asset('Template/img/none.png')}}" />
-                        @endif
-                        
-                    </figure>                    
+            <div class="col-md-4 user-profile">
+                <div class="p-3 text-center border-end mt-4 "> 
+                    <div class="progilr-image d-flex justify-content-center">
+                        <figure>                            
+                            @if(!empty($user->profile->image))
+                                <img class="rounded-circle border img-thumbnail"  src="{{@Storage::disk('local')->url($user->profile->image)}}" />
+                            @else
+                                <img class="rounded-circle"  src="{{asset('Template/img/none.png')}}" />
+                            @endif                            
+                        </figure>
+                    </div>
                     <h2 class="mt-2">{{ucfirst($user->name)}}</h2> 
-                    <span class="address-content">{{$user->email}}</span>
+                    <span class="address-content">{{$user->email}}
                     <!-- Button trigger modal -->
                         <button type="button" class="btn btn-sm " data-toggle="modal" data-target="#exampleModalCenter">
                             <i class="fa fa-edit"></i>
                         </button>
+                    </span>
+
+                    
+                    <div class="profile-info text-left mt-3">
+                        <p class="profile-text">
+                            <span>Phone</span>
+                            <br/>
+                            {{$user->profile->phone}}
+                        </p>
+                        <p class="profile-text">
+                            <span>Phone</span>
+                            <br/>
+                            {{ucfirst($user->profile->address)}}
+                        </p>
+                    </div>
+
+
 
                     <div class="content-aboutme mt-1 p-3">
                         <a class="btn btn-danger btn-sm w-100" href="{{ route('logout') }}"
@@ -249,7 +57,7 @@
             </div>
             <div class="col-md-8">
                 <div class="p-3 board">
-                    <div class="d-flex justify-content-between align-items-center"> 
+                    <div class="d-flex justify-content-between align-items-center mb-4"> 
                         <h4 class="font-weight-bolder text-success">My Invitation</h4>                         
                     </div>
                     <div class="row">
@@ -264,10 +72,10 @@
                                             <h5 class="">Happy Birthday</h5>                                    
                                         </div>
                                         <div class="card-footer mt-1">
-                                            <a href="{{route('my-invitations.show',$invi->id)}}" class="btn  btn-sm Priview ">Preview</a>
+                                            <a href="{{route('my-invitations.show',$invi->slug)}}" class="btn  btn-sm Priview ">Preview</a>
                                             <a href="" class="btn btn-outline-primary btn-sm text-dark">wp</a>
                                             <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fa fa-share"></i></a>
-                                            <a href="" class="btn btn-outline-success btn-sm text-dark"><i class="fa fa-eye"></i></a>
+                                            <a href="{{route('invite',$invi->slug)}}" class="btn btn-outline-success btn-sm text-dark"><i class="fa fa-eye"></i></a>
                                         </div>
                                     </div>
                                 </div>

@@ -32,12 +32,7 @@ Route::group(['namespace' => 'Template', ],function(){
 Route::group(['namespace' => 'UserDash', 'prefix'=>'u', 'middleware' => ['auth'] ],function(){
     Route::get('dashboard','UserDashboardController@index')->name('user-dashboard');
 
-    Route::post('update-profile','ProfileController@update')->name('update-user-profile');
-
-    //Route::get('/my-invitations','InvitationController@index')->name('my-invitations');
-    Route::get('/create','InvitationController@create')->name('invitation-form');    
-    Route::post('/invi/birthday','InvitationController@store')->name('invi-store');
-    Route::post('/my-invi/{$id}','InvitationController@show')->name('my-invi-show');
+    Route::post('update-profile','ProfileController@update')->name('update-user-profile'); 
 
     Route::resource('/my-invitations','InvitationController');
 });
@@ -51,6 +46,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'iw', 'middleware'=>['auth','adm
     /**------------Users Route------------ */
     Route::get('/users','UsersController@index')->name('admin-users');
     Route::get('/user/{id}','UsersController@usersDetails')->name('admin-users-details');
+    Route::delete('/user/{id}','UsersController@destroy')->name('admin-users-delete');
     Route::post('/search','SearchController@search')->name('admin-users-search');
 
     

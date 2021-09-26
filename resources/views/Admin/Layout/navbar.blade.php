@@ -1,7 +1,8 @@
 <div class="container-flude  bg-white shadow mb-4">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-light">             
-            <button type="button" id="sidebarCollapse" class="btn btn-outline-dark"> <i class="fa fa-align-justify"></i> </button> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <button type="button" id="sidebarCollapse" class="btn btn-outline-dark"> <i class="fa fa-align-justify"></i> </button> 
+            
             
                 <div class="text-right ml-auto mr-4">
                     @if(Auth::guest())                                           

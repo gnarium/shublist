@@ -1,389 +1,206 @@
-@extends('Layout.app')
+@extends('Template.invi.Layout.app')
 
-@section('css')
-    <link rel="stylesheet" href="{{asset('Template/css/about-us.css')}}" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+@section('css') 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('css/invitation.css')}}">
+<link rel="stylesheet" href="{{asset('UserDash/css/create_invi.css')}}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-    <style>
-        .mega-dropdown {
-            position: static !important;
-        }
-
-        .mega-dropdown-menu {
-            padding: 20px 0px;
-            width: 100%;
-            box-shadow: none;
-            -webkit-box-shadow: none;
-        }
-
-        .mega-dropdown-menu>li>ul {
-            padding: 0;
-            margin: 0;
-        }
-
-        .mega-dropdown-menu>li>ul>li {
-            list-style: none;
-        }
-
-        .mega-dropdown-menu>li>ul>li>a {
-            display: block;
-            color: #222;
-            padding: 3px 5px;
-        }
-
-        .mega-dropdown-menu>li ul>li>a:hover,
-        .mega-dropdown-menu>li ul>li>a:focus {
-            text-decoration: none;
-        }
-
-        .mega-dropdown-menu .dropdown-header {
-            font-size: 18px;
-            color: #ff3546;
-            padding: 5px 60px 5px 5px;
-            line-height: 30px;
-        }
-
-        .carousel-control {
-            width: 30px;
-            height: 30px;
-            top: -35px;
-
-        }
-
-        .left.carousel-control {
-            right: 30px;
-            left: inherit;
-        }
-
-        .carousel-control .glyphicon-chevron-left,
-        .carousel-control .glyphicon-chevron-right {
-            font-size: 12px;
-            background-color: #fff;
-            line-height: 30px;
-            text-shadow: none;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-    </style>
-
-<style>
-    
-/**Wish Top */
-
-
-
-.wish-top{
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;    
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-color:rgba(0,0,0,.5);
-    
-}
-.wish-top .image{
-  border: 5px solid #E97F81;
-  width: 300px;
-  height:300px;
-  border-radius: 50%;  
-  overflow:hidden;
-}
-.wish-top .image>img{
-  width: 100%;
-  height: 100%;
-}
-
-
-@font-face {
-  font-family: neon;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
-}
-
-.wish-top .text .heading{
-    font-family: neon;
-  color: #FB4264;
-  font-size: 4vw;
-  line-height: 9vw;
-  font-weight:bolder;
-
-}
-.wish-top .text p{
-    font-weight:700;
-    font-size:20px;
-    font-family: 'Allura', cursive;
-    
-}
-
-/**Wish-quote */
-.wish-quote{
-    min-height:400px;
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;    
-    background-repeat: no-repeat;
-    background-position: right;
-    
-}
-.wish-quote .card{
-    border:0px;
-    margin-top:10px;
-    margin-bottom:10px;
-}
-.wish-quote blockquote {
-    font-size: 1.1em;
-    line-height: 1.6em;
-    padding: 20px 20px 20px 40px;
-    border-left: none;
-    position: relative;
-    text-indent: -19px
-}
-
-.wish-quote section#block_content{
-    text-align: left
-}
-
-.wish-quote blockquote p {
-    font-size: 1em
-}
-
-.wish-quote blockquote:before,
-.wish-quote blockquote:after {
-    font-family: Arial, serif;
-    font-size: 2.5em;
-    vertical-align: middle;
-    line-height: 0
-}
-
-.wish-quote blockquote:before {
-    content: open-quote;
-    margin-right: 4px
-}
-
-.wish-quote blockquote:after {
-    content: close-quote;
-    margin-left: 3px
-}
-
-.wish-quote blockquote.blockstyle,
-.wish-quote blockquote.style2 {
-    background: #fff;
-    font-style: italic
-}
-
-.wish-quote blockquote.blockstyle p,
-.wish-quote blockquote.style2 p {
-    display: inline
-}
-
-.wish-quote blockquote.blockstyle {
-    border-left: 3px solid #f0715f;
-    position: relative
-}
-
-.wish-quote blockquote.blockstyle>span.triangle:before {
-    text-indent: 0;
-    content: "\f0da";
-    font-family: FontAwesome;
-    color: #f0715f;
-    position: absolute;
-    left: -1px;
-    top: 50%;
-    margin-top: -11px;
-    font-style: normal
-}
-
-.wish-quote blockquote.blockstyle:before,
-.wish-quote blockquote.blockstyle:after {
-    color: #f0715f
-}
-
-.wish-quote blockquote.blockstyle.border-color-blue {
-    border-color: #01b7f2
-}
-
-.wish-quote blockquote.blockstyle.border-color-blue>span.triangle:before {
-    color: #01b7f2
-}
-
-.wish-quote blockquote.blockstyle.border-color-yellow {
-    border-color: #fdb714
-}
-
-.wish-quote blockquote.blockstyle.border-color-yellow>span.triangle:before {
-    color: #fdb714
-}
-
-
-/**-------------------Bday-images-----------------------*/
-
-.bday-images .heading::before {  
-  transform: scaleX(0);
-  transform-origin: bottom right;
-}
-
-.bday-images .heading:hover::before {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.bday-images .heading::before {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  inset: 0 0 0 0;
-  background: hsl(200 100% 80%);
-  z-index: -1;
-  transition: transform .3s ease;
-}
-
-.bday-images .heading{
-  position: relative;
-  font-weight: 700;
-  font-size: 2rem;
-}
-/**Invitation Date */
-.invi-date{
-    min-height:150px;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;    
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-.invi-date .heading{
-    font-size:60px;
-    font-family: 'Pacifico', cursive;
-    color:white;
-}
-
-
-        /**------------Bday-images------------- */
-        .bday-memorry .img-card{
-            height: 350px;
-            overflow: hidden;
-        }
-        .bday-memorry .img-card>img{  
-            height: 100%;
-            width: 100%
-        }
-
-</style>
     
 @endsection
 
 @section('main')
-<form action="{{route('invi-store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('my-invitations.store')}}" method="post" enctype="multipart/form-data">
 @csrf
-    <!-----------Wish Top----------->
-    <div class="container-flude wish-top"  style="background-image: url({{asset('Template/img/preview/6.jpg')}}" >
-        <div class="p-3" style="">
-            <div class="container">            
-                <div class="row align-items-center">
-                    <!------------Image------------>
-                    <div class="col-sm-6 d-flex justify-content-center">
-                        <div class="image">
-                            <img src="{{asset('Template/img/preview/527-5273264_free-happy-birthday-greeting-templets-happy-birthday-png.png')}}" class="" alt=""> 
-                        </div>
-                    </div>
-
-                    <!------------text------------>
-                    <div class="col-sm-6">
-                        <div class="text">
-                            <h4 class="heading">Happy Birthady</h4>
-                            <textarea name="quote" id="" cols="15" rows="5" class="form-control mt-4">Birthdays are a new start, a fresh beginning and a time to pursue new endeavors with new goals. Move forward with confidence and courage. You are a very special person. May today and all of your days be amazing!
-                            </textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-----------Quote----------->
-    <div class="container-flude">
-        <div class="container wish-quote mt-5 d-flex align-items-center "  style="background-image: url({{asset('Template/img/preview/happy-birthday-balloon-background-flat-style_1017-22487.jpg')}}">
+    <div class="container-flude wish-top py-5 ">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="card ml-4">
-                        <section id="block_content">
-                            <div class="col-md-6 container">
-                                <blockquote class="blockstyle"> <span class="triangle"></span>The Kadence Importer allows you to easily import all including images, from any of our Kadence themes demos. When you install a Kadence theme, the importer will automatically see what theme you are using and give you options to import anyone of those themes </blockquote>
-                            </div>
-                        </section>
+                    <div class="d-flex justify-content-center">
+                        <div class="image mb-3">
+                            <img src="{{asset('Template/img/none.png')}}" class="img-thumbnail" >
+                        </div>
+                    </div>
+                    <div class="image-uploade mb-2 text-center d-flex justify-content-center">
+                        <input type="file" name="img_1" id="" class="form-control w-50">
                     </div>
                 </div>
-            </div>        
+                <div class="col-sm-6 text-center">
+
+                    <h2 class="title">HAPPY
+                        <br>
+                        <span>
+                            Birthday
+                        </span>                    
+                    </h2>
+                    <textarea class="form-control" name="quote_1" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                </div>
+            </div>
         </div>
     </div>
-<!--
-    <div class=" shadow container-flude border mt-3 mb-3 invi-date d-flex align-items-center" style="background-image: url({{asset('Template/img/preview/texture-glitter-elegant-christmas-sparkling-260nw-1674056632.jpg')}}">
+
+    <!-- ---- Histroy-of ----- -->
+    <div class="container-flude history-Of mt-4 bg-white">
         <div class="container">
-            <div class="row ">
-                <div class="col-sm-12 text-center align-items-center">
-                    <h4 class="heading">10 Days left</h4>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="image">
+                        <img src="{{asset('Template/img/none.png')}}" class="img-thumbnail" >
+                    </div>
+                    <br>
+                    <div class="image-uploade">
+                        <input type="file" name="img_2" id="" class="form-control ">
+                    </div>
+                    
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control heading mb-4" value="History Of Birthday" name="heading_2">
+                    <textarea class="form-control" name="quote_2" cols="10" rows="10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
                 </div>
             </div>
         </div>
     </div>
--->
-    <!-----------Birthady images----------->
-    <div class="container images mt-5 bday-memorry">    
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card border shadow mt-3 img-card">
-                    <img class="brder img-thumbnail" src="{{asset('Template/img/none.png')}}" >
-                </div>
-                <input type="file" name="image1" id="" class="mt-1">
-            </div>
 
-            <div class="col-sm-4">
-                <div class="card border shadow mt-3 img-card">
-                    <img class="brder img-thumbnail" src="{{asset('Template/img/none.png')}}" >
+    <!-- ---- Gift-Proposal ----- -->
+    <div class="container-flude Gift-Proposal mt-5 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_3">
+                    <textarea class="form-control" name="quote_3" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
                 </div>
-                <input type="file" name="image2" id="" class="mt-1">
-            </div>
 
-            <div class="col-sm-4">
-                <div class="card border shadow mt-3 img-card">
-                    <img class="brder img-thumbnail" src="{{asset('Template/img/none.png')}}" >
-                </div>
-                <input type="file" name="image3" id="" class="mt-1">
-            </div>            
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <div class="create-button mt-5">
-                    <button type="submit" class="btn bg-primary px-4 py-2">Create Now</button>
+                <div class="col-sm-4">
+                    <div class="image">
+                        <img src="{{asset('Template/img/none.png')}}" class="img-thumbnail" >
+                    </div>
+                    <div class="image-uploade mt-2">
+                        <input type="file" name="img_3" id="" class="form-control ">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</form>
+
+    <!-- ---- Offers & Services ----- -->
+    <div class="container-flude offer-services mt-5 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_4">
+                    <textarea class="form-control" name="quote_4" cols="10" rows="10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card border-0 mt-2">
+                                <div class="card-body">
+                                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_5">
+                                    <textarea class="form-control" name="quote_5" cols="10" rows="3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="card border-0 mt-2">
+                                <div class="card-body">
+                                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_6">
+                                    <textarea class="form-control" name="quote_6" cols="10" rows="3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="card border-0 mt-2">
+                                <div class="card-body">
+                                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_7">
+                                    <textarea class="form-control" name="quote_7" cols="10" rows="3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="card border-0 mt-2">
+                                <div class="card-body">
+                                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_8">
+                                    <textarea class="form-control" name="quote_8" cols="10" rows="3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ---- Invite-date ----- -->
+    <div class="container-flude invite-date mt-4" style="background-image: url({{asset('Template/img/preview/counter-love2.png')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="title"> Date </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- IMAGE GALLERY ----- -->
+    <div class="container image-gallery mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="img-box mt-2 border">
+                                <img src="{{asset('Template/img/none.png')}}"  >                                
+                            </div>
+                            <input type="file" name="bday_memo_1" id="" class="mt-1 mb-1">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="img-box mt-2 border">
+                                <img src="{{asset('Template/img/none.png')}}"  >
+                            </div>
+                            <input type="file" name="bday_memo_2" id="" class="mt-1 mb-1">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="img-box mt-2 border">
+                                <img src="{{asset('Template/img/none.png')}}"  >
+                            </div>
+                            <input type="file" name="bday_memo_3" id="" class="mt-1 mb-1">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="img-box mt-2 border">
+                                <img src="{{asset('Template/img/none.png')}}">                                
+                            </div>
+                            <input type="file" name="bday_memo_4" id="" class="mt-1 mb-1">
+                        </div>                    
+                    </div>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_9">
+                    <textarea class="form-control" name="quote_9" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container flude Follow-Us mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary px-5 btn-rounded shadow py-3 px-5 mt-2 create-btn w-30 font-weight-bolder">Create</button>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+<form>
 @endsection
 
 @section('js')
-    <script>
-        $(document).ready(function () {
-            $(".dropdown").hover(
-                function () {
-                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
-                    $(this).toggleClass('open');
-                },
-                function () {
-                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
-                    $(this).toggleClass('open');
-                }
-            );
-        });
-
-    </script>
+    
 @endsection

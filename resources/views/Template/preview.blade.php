@@ -163,7 +163,7 @@
                 <p class="text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                 </p>
-                <span class="btn btn-outline-danger btn-rounded px-5 create-Button">Design Your Own </span>
+                <a href="{{route('my-invitations.create')}}" class="btn btn-outline-danger btn-rounded px-5 create-Button">Design Your Own </a>
             </div>
         </div>
     </div>
@@ -282,7 +282,7 @@
 </div>
 
 <!-- ---- IMAGE GALLERY ----- -->
-<div class="container image-gallery mt-4">
+<div class="container image-gallery mt-4 mb-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-8">
@@ -327,31 +327,6 @@
     </div>
 </div>
 
-<div class="container flude Follow-Us mt-5 py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <div class="follow-links py-4">
-                    <h2 class="title font-weight-bolder">Follow-Us</h2>
-                    <a href="" class="facebook follow-buttons mr-2">
-                        <img src="{{asset('Template/img/social-media/64px/facebook.png')}}" >
-                    </a>
-                    <a href="" class="facebook follow-buttons mr-2">
-                        <img src="{{asset('Template/img/social-media/64px/instagram.png')}}" >
-                    </a>
-                    <a href="" class="facebook follow-buttons mr-2">
-                        <img src="{{asset('Template/img/social-media/64px/whatsapp.png')}}" >
-                    </a>
-
-                    <a href="" class="facebook follow-buttons ">
-                        <img src="{{asset('Template/img/social-media/64px/telegram.png')}}" >
-                    </a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>    
-</div>
 @endsection
 
 @section('js')

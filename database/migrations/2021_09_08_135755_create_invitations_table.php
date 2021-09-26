@@ -19,12 +19,44 @@ class CreateInvitationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             
-            $table->string('quote')->nullable();
-            $table->string('invi_date')->nullable();
+            /**Block With Image */
+            $table->string('heading_1')->nullable();
+            $table->string('quote_1')->nullable();
+            $table->string('image_1')->nullable();
+            
+            $table->string('heading_2')->nullable();
+            $table->string('quote_2')->nullable();
+            $table->string('image_2')->nullable();
 
-            $table->text('img1')->nullable();
-            $table->text('img2')->nullable();
-            $table->text('img3')->nullable();
+            $table->string('heading_3')->nullable();
+            $table->string('quote_3')->nullable();
+            $table->string('image_3')->nullable();
+
+            /**Block Wthout Image */
+
+            $table->string('heading_4')->nullable();
+            $table->string('quote_4')->nullable();
+
+            $table->string('heading_5')->nullable();
+            $table->string('quote_5')->nullable();
+
+            $table->string('heading_6')->nullable();
+            $table->string('quote_6')->nullable();
+
+            $table->string('heading_7')->nullable();
+            $table->string('quote_7')->nullable();
+
+            $table->string('heading_8')->nullable();
+            $table->string('quote_8')->nullable();
+            
+            $table->string('heading_9')->nullable();
+            $table->string('quote_9')->nullable();
+
+            /**Memories */
+            $table->string('memories_1')->nullable();
+            $table->string('memories_2')->nullable();
+            $table->string('memories_3')->nullable();
+            $table->string('memories_4')->nullable();
 
             $table->string('slug');
 

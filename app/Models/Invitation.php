@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Invitation extends Model
 {
     use HasFactory;
+    protected $casts = [
+        'memories' => 'array',
+    ];
+
+    protected $fillable = [
+        'memories'
+    ];
 
     /*Relationship between Page And User */
     public function user()
