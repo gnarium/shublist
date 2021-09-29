@@ -18,6 +18,7 @@ class ProfileController extends Controller
 
         $profile = Profile::where('user_id',Auth::user()->id)->first();
         $profile->phone = $req->phone;
+        $profile->dob = $req->DOB;
         $profile->address = $req->address;
 
          /**----------------Image 1------------------- */

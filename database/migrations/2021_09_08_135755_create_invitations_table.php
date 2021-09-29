@@ -52,6 +52,9 @@ class CreateInvitationsTable extends Migration
             $table->string('heading_9')->nullable();
             $table->string('quote_9')->nullable();
 
+            $table->string('heading_10')->nullable();
+            $table->string('quote_10')->nullable();
+
             /**Memories */
             $table->string('memories_1')->nullable();
             $table->string('memories_2')->nullable();

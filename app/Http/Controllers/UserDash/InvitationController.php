@@ -71,6 +71,9 @@ class InvitationController extends Controller
         $invi->heading_9 = $request->heading_9;
         $invi->quote_9 = $request->quote_9;
 
+        $invi->heading_10 = $request->heading_10;
+        $invi->quote_10 = $request->quote_10;
+
         $invi->slug = Str::random(10).time();
         /**----------------Image 1------------------- */
         if ($request->hasFile('img_1')) {
@@ -190,6 +193,9 @@ class InvitationController extends Controller
 
         $invi->heading_9 = $request->heading_9;
         $invi->quote_9 = $request->quote_9;
+
+        $invi->heading_10 = $request->heading_10;
+        $invi->quote_10 = $request->quote_10;
 
         /**----------------Image 1------------------- */
         if ($request->hasFile('img_1')) {

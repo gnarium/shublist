@@ -138,8 +138,9 @@
     <div class="container-flude invite-date mt-4" style="background-image: url({{asset('Template/img/preview/counter-love2.png')}}">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2 class="title"> Date </h2>
+                <div class="col-sm-6 text-center mx-auto">
+                    <input type="text" class="form-control heading mb-4" value="Party Address" name="heading_9" >
+                    <textarea class="form-control" name="quote_9" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
                 </div>
             </div>
         </div>
@@ -181,8 +182,8 @@
                     </div>
                 </div>
                 <div class="col-sm-4 text-right">
-                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_9">
-                    <textarea class="form-control" name="quote_9" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
+                    <input type="text" class="form-control heading mb-4" value="Heading" name="heading_10">
+                    <textarea class="form-control" name="quote_10" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</textarea>
                 </div>
             </div>
         </div>

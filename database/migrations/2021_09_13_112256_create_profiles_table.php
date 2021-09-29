@@ -20,6 +20,7 @@ class CreateProfilesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');                       
             
             $table->string('phone')->nullable();
+            $table->string('dob')->nullable();
             $table->string('address')->nullable();            
             $table->text('image')->nullable();
             

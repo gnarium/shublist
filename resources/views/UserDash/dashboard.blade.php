@@ -34,8 +34,15 @@
                             <br/>
                             {{$user->profile->phone}}
                         </p>
+
                         <p class="profile-text">
-                            <span>Phone</span>
+                            <span>DOB</span>
+                            <br/>
+                            {{$user->profile->dob}}
+                        </p>
+
+                        <p class="profile-text">
+                            <span>Address</span>
                             <br/>
                             {{ucfirst($user->profile->address)}}
                         </p>
@@ -189,6 +196,10 @@
             <div class="form-group">
                 <label for="Phone">Phone</label>
                 <input type="text" class="form-control" id="Phone" placeholder="Phone Number" name="phone" value="{{$user->profile->phone}}">
+            </div>
+            <div class="form-group">
+                <label for="DOB">DOB</label>
+                <input type="date" class="form-control" id="DOB" placeholder="DOB" name="DOB" value="{{$user->profile->dob}}">
             </div>
             <div class="form-group">
                 <label for="Phone">Address</label>

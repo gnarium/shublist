@@ -153,8 +153,13 @@
 <div class="container-flude invite-date mt-4" style="background-image: url({{asset('Template/img/preview/counter-love2.png')}}">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="title"> Date </h2>
+            <div class="col-sm-6 text-center mx-auto">
+            <h2 class="title">
+                    {{ucfirst($invite->heading_9)}}
+                </h2>
+                <p class="text">
+                    {{ucfirst($invite->quote_9)}}
+                </p>
             </div>
         </div>
     </div>
@@ -208,10 +213,10 @@
             </div>
             <div class="col-sm-4 text-right">
                 <h2 class="title">
-                    {{ucfirst($invite->heading_9)}}
+                    {{ucfirst($invite->heading_10)}}
                 </h2>
                 <p class="text">
-                    {{ucfirst($invite->quote_9)}}
+                    {{ucfirst($invite->quote_10)}}
                 </p>
             </div>
         </div>
