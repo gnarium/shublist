@@ -13,6 +13,25 @@
 @section('main')
 <form action="{{route('my-invitations.store')}}" method="post" enctype="multipart/form-data">
 @csrf
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 mx-auto">
+            
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+        </div>
+    </div>
+</div>
+
+
     <div class="container-flude wish-top py-5 ">
         <div class="container">
             <div class="row">

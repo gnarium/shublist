@@ -5,6 +5,23 @@
 @endsection
 
 @section('main')
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 mx-auto">            
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+        </div>
+    </div>
+</div>
+
 <div class="container mt-5 mb-5 dashboard">
     <div class="card"> 
         <div class="row g-2">
@@ -79,10 +96,15 @@
                                             <h5 class="">Happy Birthday</h5>                                    
                                         </div>
                                         <div class="card-footer mt-1">
-                                            <a href="{{route('my-invitations.show',$invi->slug)}}" class="btn  btn-sm Priview ">Preview</a>
-                                            <a href="" class="btn btn-outline-primary btn-sm text-dark">wp</a>
-                                            <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fa fa-share"></i></a>
+                                            <a href="{{route('my-invitations.show',$invi->slug)}}" class="btn  btn-sm Priview ">Preview</a>                                            
+                                            <a href="whatsapp://send?text=Happy-Birthday http://127.0.0.1:8000/invi/birthday/{{$invi->slug}}" data-action="share/whatsapp/share" target="_blank" class="btn btn-outline-primary btn-sm text-dark">
+                                                <i class="fa fa-share"></i>
+                                            </a>
+                                            
+                                            <button onclick="copyToClipboard('#text')" class="btn btn-outline-info btn-sm text-dark"><i class="fa fa-copy"></i></button>
+                                            
                                             <a href="{{route('invite',$invi->slug)}}" class="btn btn-outline-success btn-sm text-dark"><i class="fa fa-eye"></i></a>
+                                            <p id="text" value="" style="display:none">http://127.0.0.1:8000/invi/birthday/{{$invi->slug}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -225,4 +247,13 @@
 @endsection
 
 @section('js')
+<script>
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
 @endsection

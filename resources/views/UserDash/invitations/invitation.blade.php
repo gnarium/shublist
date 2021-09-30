@@ -88,7 +88,7 @@
                     @if(!empty($invite->image_1))
                         <img src="{{@Storage::disk('local')->url($invite->image_3)}}" class="img-thumbnail" >
                     @else
-                        <img src="{{asset('Template/img/preview/about-left-img.png')}}" class="img-thumbnail" >
+                        <img src="{{asset('Template/img/preview/gift-img.png')}}" class="img-thumbnail" >
                     @endif
                 </div>
             </div>
@@ -217,7 +217,7 @@
                 </h2>
                 <p class="text">
                     {{ucfirst($invite->quote_10)}}
-                </p>
+                </p> 
             </div>
         </div>
     </div>
@@ -235,7 +235,7 @@
                     <a href="" class="facebook follow-buttons mr-2">
                         <img src="{{asset('Template/img/social-media/64px/instagram.png')}}" >
                     </a>
-                    <a href="" class="facebook follow-buttons mr-2">
+                    <a href="whatsapp://send?text=Happy-Birthday http://127.0.0.1:8000/invi/birthday/{{ $invite->slug }}" data-action="share/whatsapp/share" target="_blank" class="facebook follow-buttons mr-2">
                         <img src="{{asset('Template/img/social-media/64px/whatsapp.png')}}" >
                     </a>
 

@@ -12,6 +12,13 @@ class ProfileController extends Controller
 {
     public function update(Request $req)
     {
+        $validated = $request->validate([
+            'name' => 'max:255',
+            'phone' => 'max:15',
+            'address' => 'max:255',
+        ]);
+
+        
         $user = User::find(Auth::user()->id);
         $user->name = $req->name;
         $user->save();

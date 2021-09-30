@@ -40,6 +40,29 @@ class InvitationController extends Controller
      */
     public function store(Request $request)
     {   
+        $validated = $request->validate([
+            'heading_1' => 'max:100',
+            'quote_1' => 'max:250',
+            'heading_2' => 'max:100',
+            'quote_2' => 'max:250',
+            'heading_3' => 'max:100',
+            'quote_3' => 'max:250',
+            'heading_4' => 'max:100',
+            'quote_4' => 'max:250',
+            'heading_5' => 'max:100',
+            'quote_5' => 'max:250',
+            'heading_6' => 'max:100',
+            'quote_6' => 'max:250',
+            'heading_7' => 'max:100',
+            'quote_7' => 'max:250',
+            'heading_8' => 'max:100',
+            'quote_8' => 'max:250',
+            'heading_9' => 'max:100',
+            'quote_9' => 'max:250',
+            'heading_10' => 'max:100',
+            'quote_10' => 'max:250',
+        ]);
+
         $invi = new Invitation;
         $invi->user_id = Auth::user()->id;
         
@@ -163,6 +186,30 @@ class InvitationController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $validated = $request->validate([
+            'heading_1' => 'max:100',
+            'quote_1' => 'max:250',
+            'heading_2' => 'max:100',
+            'quote_2' => 'max:250',
+            'heading_3' => 'max:100',
+            'quote_3' => 'max:250',
+            'heading_4' => 'max:100',
+            'quote_4' => 'max:250',
+            'heading_5' => 'max:100',
+            'quote_5' => 'max:250',
+            'heading_6' => 'max:100',
+            'quote_6' => 'max:250',
+            'heading_7' => 'max:100',
+            'quote_7' => 'max:250',
+            'heading_8' => 'max:100',
+            'quote_8' => 'max:250',
+            'heading_9' => 'max:100',
+            'quote_9' => 'max:250',
+            'heading_10' => 'max:100',
+            'quote_10' => 'max:250',
+        ]);
+        
         $invi = Invitation::where('user_id',Auth::user()->id)
                                     ->where('id',$id)->first();
 
