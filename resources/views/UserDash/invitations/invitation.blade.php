@@ -21,7 +21,7 @@
                     @if(!empty($invite->image_1))
                         <img src="{{@Storage::disk('local')->url($invite->image_1)}}" class="img-thumbnail" >
                     @else
-                        <img src="{{asset('Template/img/preview/about-left-img.png')}}" class="img-thumbnail" >
+                        <img src="{{asset('Template/img/preview/children.png')}}" class="img-thumbnail" >
                     @endif
                 </div>
             </div>
@@ -211,7 +211,7 @@
                     
                 </div>
             </div>
-            <div class="col-sm-4 text-right">
+            <div class="col-sm-4 text-right mt-4">
                 <h2 class="title">
                     {{ucfirst($invite->heading_10)}}
                 </h2>

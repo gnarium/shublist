@@ -41,7 +41,7 @@ class InvitationController extends Controller
     public function store(Request $request)
     {   
         $validated = $request->validate([
-            'heading_1' => 'max:100',
+            
             'quote_1' => 'max:250',
             'heading_2' => 'max:100',
             'quote_2' => 'max:250',
@@ -66,7 +66,6 @@ class InvitationController extends Controller
         $invi = new Invitation;
         $invi->user_id = Auth::user()->id;
         
-        $invi->heading_1 = $request->heading_1;
         $invi->quote_1 = $request->quote_1;
 
 
@@ -188,7 +187,7 @@ class InvitationController extends Controller
     {
 
         $validated = $request->validate([
-            'heading_1' => 'max:100',
+            
             'quote_1' => 'max:250',
             'heading_2' => 'max:100',
             'quote_2' => 'max:250',
@@ -213,7 +212,7 @@ class InvitationController extends Controller
         $invi = Invitation::where('user_id',Auth::user()->id)
                                     ->where('id',$id)->first();
 
-        $invi->heading_1 = $request->heading_1;
+        
         $invi->quote_1 = $request->quote_1;
 
 

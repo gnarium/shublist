@@ -101,7 +101,7 @@
                                                 <i class="fa fa-share"></i>
                                             </a>
                                             
-                                            <button onclick="copyToClipboard('#text')" class="btn btn-outline-info btn-sm text-dark"><i class="fa fa-copy"></i></button>
+                                            <button onclick="copyToClipboard('#text')" class="btn btn-outline-info btn-sm text-dark"><i class="fa fa-copy" title="Copy to Clipboard"></i></button>
                                             
                                             <a href="{{route('invite',$invi->slug)}}" class="btn btn-outline-success btn-sm text-dark"><i class="fa fa-eye"></i></a>
                                             <p id="text" value="" style="display:none">http://127.0.0.1:8000/invi/birthday/{{$invi->slug}}</p>

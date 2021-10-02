@@ -41,7 +41,7 @@
                             <img src="{{asset('Template/img/none.png')}}" class="img-thumbnail" >
                         </div>
                     </div>
-                    <div class="image-uploade mb-2 text-center d-flex justify-content-center">
+                    <div class="image-uploade mb-2 mb-2 text-center d-flex justify-content-center">
                         <input type="file" name="img_1" id="" class="form-control w-50">
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         <img src="{{asset('Template/img/none.png')}}" class="img-thumbnail" >
                     </div>
                     <br>
-                    <div class="image-uploade">
+                    <div class="image-uploade mb-2">
                         <input type="file" name="img_2" id="" class="form-control ">
                     </div>
                     
@@ -94,7 +94,7 @@
                     <div class="image">
                         <img src="{{asset('Template/img/none.png')}}" class="img-thumbnail" >
                     </div>
-                    <div class="image-uploade mt-2">
+                    <div class="image-uploade mb-2 mt-2">
                         <input type="file" name="img_3" id="" class="form-control ">
                     </div>
                 </div>

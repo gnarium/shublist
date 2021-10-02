@@ -22,7 +22,7 @@
                     @if(!empty($invite->image_1))
                         <img src="{{@Storage::disk('local')->url($invite->image_1)}}" class="img-thumbnail" >
                     @else
-                        <img src="{{asset('Template/img/preview/about-left-img.png')}}" class="img-thumbnail" >
+                        <img src="{{asset('Template/img/preview/children.png')}}" class="img-thumbnail" >
                     @endif
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     @if(!empty($invite->image_1))
                         <img src="{{@Storage::disk('local')->url($invite->image_3)}}" class="img-thumbnail" >
                     @else
-                        <img src="{{asset('Template/img/preview/about-left-img.png')}}" class="img-thumbnail" >
+                        <img src="{{asset('Template/img/preview/gift-img.png')}}" class="img-thumbnail" >
                     @endif
                 </div>
             </div>
@@ -145,8 +145,13 @@
 <div class="container-flude invite-date mt-4" style="background-image: url({{asset('Template/img/preview/counter-love2.png')}}">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="title"> Date </h2>
+            <div class="col-sm-8 mx-auto text-center">
+                <h2 class="title font-weight-bolder">
+                    {{ucfirst($invite->heading_9)}}
+                </h2>
+                <p class="text">
+                    {{ucfirst($invite->quote_9)}}
+                </p>
             </div>
         </div>
     </div>
@@ -198,12 +203,12 @@
                     
                 </div>
             </div>
-            <div class="col-sm-4 text-right">
+            <div class="col-sm-4 text-right mt-4">
                 <h2 class="title font-weight-bolder">
-                    {{ucfirst($invite->heading_9)}}
+                    {{ucfirst($invite->heading_10)}}
                 </h2>
                 <p class="text">
-                    {{ucfirst($invite->quote_9)}}
+                    {{ucfirst($invite->quote_10)}}
                 </p>
             </div>
         </div>

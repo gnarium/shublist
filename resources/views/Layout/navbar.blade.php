@@ -1,15 +1,5 @@
 <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__search__option">
-            <img class="search-switch" src="{{asset('Template/img/icon/search.png')}}" alt="">
-        </div>
-        <div class="offcanvas__widget">
-            <ul>
-                <li><a href="#"><img src="{{asset('Template/img/icon/heart.png')}}" alt=""></a> <span>(05)</span></li>
-                <li><a href="#"><img src="{{asset('Template/img/icon/bag.png')}}" alt=""></a> <span>(01)</span></li>
-            </ul>
-            <div class="price">$ 65.0</div>
-        </div>
+    <div class="offcanvas-menu-wrapper">                
         <div class="offcanvas__logo">
             <a href="/"><img src="{{asset('Template/img/logo.png')}}" alt=""></a>
         </div>
