@@ -31,15 +31,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://example.com/callback-url',
-    ],
-
-    'facebook' => [
-        'client_id' => env('FACEBOOK_CLIENT_ID'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => 'http://example.com/callback-url',
+        'client_id'     => '754820271236-0ri97l0jn8p23eqv1iroct332fj377go.apps.googleusercontent.com',
+        'client_secret' => 'jRUkyyUW3R7__6Wf8oQDA2ve',
+        'redirect'      => 'http://localhost:8000/callback/google'
     ],
 
 ];

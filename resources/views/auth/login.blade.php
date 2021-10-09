@@ -160,7 +160,7 @@
                         <i class="fa fa-facebook ml-2"></i> 
                         <span class="ml-5 px-4 text-white">Continue with facebook</span> 
                     </a> 
-                    <a class="btn btn-danger btn-block continue google-button  justify-content-start align-items-center"> 
+                    <a href="{{ url('/redirect') }}" class="btn btn-danger btn-block continue google-button  justify-content-start align-items-center"> 
                         <i class="fa fa-google ml-2"></i> 
                         <span class="ml-5 px-4 text-white">Continue with Google</span> 
                     </a>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Auth\SocialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,3 +64,9 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'iw', 'middleware'=>['auth','adm
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::get('redirect', 'Auth\SocialController@redirect');
+Route::get('callback', 'Auth\SocialController@callback');

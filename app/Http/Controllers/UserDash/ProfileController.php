@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     public function update(Request $req)
     {
-        $validated = $request->validate([
+        $validated = $req->validate([
             'name' => 'max:255',
             'phone' => 'max:15',
             'address' => 'max:255',
